@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9d097020-ca57-4884-87bd-fc38f8f8ea26" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +18,6 @@
   </component>
   <component name="ProjectId" id="2Nla9jIUkBaBOfbuc07d3yGfyVp" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -25,7 +27,8 @@
     "last_opened_file_path": "C:/Users/kddns/OneDrive/바탕 화면/LiveChat/LiveChat",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
