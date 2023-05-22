@@ -1,39 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<input type="text" placeholder="보낼 메세지를 입력하세요." class="content">
-<button type="button" value="전송" class="sendBtn" onclick="sendMsg()">전송</button>
-<div>
-    <span>메세지</span>
-    <div class="msgArea"></div>
-</div>
-</body>
-<script>
-        let socket = new WebSocket("ws://localhost:8080/websocket");
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <div id="modal" class="modal">
+      <div class="modal-content">
+        <h1>환영합니다!</h1>
+        <p>초기 설정을 완료해주세요.</p>
+        <input
+          type="text"
+          placeholder="사용하실 이름을 입력하세요."
+          pattern="^\S+$"
+          required
+          class="content"
+        />
+        <button id="send-button" onclick="closeModal()">시작하기</button>
+      </div>
+    </div> -->
 
-        socket.onopen = function (e) {
-            console.log('open server!')
-        };
+    <div id="chat-container">
+      <input
+        type="text"
+        placeholder="보낼 메세지를 입력하세요."
+        class="content"
+      />
+      <button type="button" value="전송" id="send-button" onclick="sendMsg()">
+        전송
+      </button>
+      <div>
+        <span>메세지</span>
+        <div class="msgArea"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let socket = new WebSocket("ws://localhost:8080/websocket");
 
-        socket.onerror = function (e){
-            console.log(e);
-        }
+    socket.onopen = function (e) {
+      console.log("open server!");
+    };
 
-        socket.onmessage = function (e) {
-            console.log(e.data);
-            let msgArea = document.querySelector('.msgArea');
-            let newMsg = document.createElement('div');
-            newMsg.innerText=e.data;
-            msgArea.append(newMsg);
-        }
+    socket.onerror = function (e) {
+      console.log(e);
+    };
 
-        function sendMsg() {
-            let content=document.querySelector('.content').value;
-            socket.send(content);
-        }
-</script>
+    socket.onmessage = function (e) {
+      console.log(e.data);
+      let msgArea = document.querySelector(".msgArea");
+      let newMsg = document.createElement("div");
+      newMsg.innerText = e.data;
+      msgArea.append(newMsg);
+    };
+
+    function sendMsg() {
+      let content = document.querySelector(".content").value;
+      socket.send(content);
+      var inputField = document.querySelector(".content");
+      inputField.value = "";
+    }
+
+    // 모달 닫기
+    function closeModal() {
+      var modal = document.getElementById("modal");
+      var userName = document.querySelector(".content").value;
+      if (userName != "") {
+        socket.send(userName);
+        modal.classList.add("hidden");
+      }
+    }
+
+    // 페이지 로드 시 모달 표시
+    // window.addEventListener("load", function () {
+    //   var modal = document.getElementById("modal");
+    //   modal.classList.remove("hidden");
+    // });
+  </script>
 </html>

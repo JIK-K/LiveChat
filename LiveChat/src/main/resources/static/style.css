@@ -1,0 +1,53 @@
+#chat-container {
+  width: 300px;
+  height: 500px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+#chat-messages {
+  margin-bottom: 10px;
+}
+
+#message-input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#send-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#send-button:hover {
+  background-color: #45a049;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 흐리게 보이는 배경 */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* 모달 숨기기 */
+.modal.hidden {
+  display: none;
+}
